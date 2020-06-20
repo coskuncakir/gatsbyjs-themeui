@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
-import TextBody from "./text-body"
 
 const Footer = ({ siteTitle }) => (
   <footer sx={{ marginTop: "auto" }}>

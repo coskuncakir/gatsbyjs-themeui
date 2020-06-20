@@ -3,7 +3,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Title from "../components/title"
 import TextBody from "../components/text-body"
-import { Link } from "gatsby"
 
 const IndexPage = () => (
   <Layout>
