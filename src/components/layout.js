@@ -30,6 +30,10 @@ const Layout = ({ children }) => {
             li: {
               listStyleType: "none",
             },
+            "p, ul": {
+              margin: 0,
+              padding: 0,
+            },
           },
         })}
       />

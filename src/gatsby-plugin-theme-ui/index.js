@@ -4,6 +4,7 @@ export default {
   colors: {
     text: "#0c0c0d",
     background: "#F8F7FC",
+    softBackground: "#fff",
     primary: "#6018F2",
     border: "rgba(96, 24, 242, 0.3)",
     modes: {
@@ -12,6 +13,7 @@ export default {
         background: "#1C1B1F",
         primary: "#0cf",
         border: "rgba(96, 24, 242, 0.3)",
+        softBackground: "rgba(255,255,255,0.09)",
       },
     },
   },

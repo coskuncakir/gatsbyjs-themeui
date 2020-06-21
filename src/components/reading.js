@@ -1,11 +1,20 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
+import Card from "./card"
 
 const Reading = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allGoodreadsReview {
+      allGoodreadsReview(limit: 10) {
+        pageInfo {
+          perPage
+          totalCount
+          pageCount
+          itemCount
+          hasPreviousPage
+          hasNextPage
+          currentPage
+        }
         nodes {
           link
           book {
@@ -15,9 +24,12 @@ const Reading = () => {
             }
             uri
             image_url
+            description
+            large_image_url
             publisher
             ratings_count
             isbn
+            link
           }
         }
       }
@@ -27,10 +39,14 @@ const Reading = () => {
   return (
     <>
       {data.allGoodreadsReview.nodes.map(node => (
-        <a href={node.link} target="_blank" rel="noopener noreferrer">
-          <Img fixed={node.book.image_url} />
-          {node.book.title}
-        </a>
+        <Card
+          title={node.book.title}
+          url={node.book.link}
+          img={node.book.image_url}
+          author={node.book.authors[0].name}
+        >
+          {node.book.description}
+        </Card>
       ))}
     </>
   )

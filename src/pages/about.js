@@ -6,7 +6,7 @@ import Title from "../components/title"
 
 const SecondPage = () => (
   <Layout>
-    <SEO title="Page two" />
+    <SEO title="About me" />
     <Title>About me</Title>
     <p>Welcome to about page ...</p>
   </Layout>
