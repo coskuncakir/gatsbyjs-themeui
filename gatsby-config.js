@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Coskun Cakir`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    description: `I’m a front-end developer ...`,
+    author: `@coscakir`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -26,13 +26,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: ``,
-        short_name: `starter`,
+        name: `Coskun Cakir`,
+        short_name: `coscakir`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/img/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/assets/img/memoji-co.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

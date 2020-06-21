@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
       />
       <div
         sx={{
-          padding: ["15px", "45px"],
+          padding: [3, 5, 5],
           maxWidth: "1280px",
           minHeight: "100vh",
           mx: "auto",
@@ -52,7 +52,7 @@ const Layout = ({ children }) => {
           sx={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill,minmax(128px,1fr))",
-            marginTop: "45px",
+            marginTop: 4,
             width: "100%",
           }}
         >

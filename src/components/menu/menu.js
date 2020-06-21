@@ -28,7 +28,7 @@ const Menu = ({ ...props }) => {
             paddingBottom: "5px",
             gridColumn: ["1 / span 1", "1 / span 1", "1 / span 3"],
             borderBottom: "1px solid rgba(0,0,0,0)",
-            transition: ".3s ease-in-out",
+            transition: "all 0.3s ease-in-out 0s",
             "&:hover": { color: "primary" },
             "&.active": {
               color: "primary",

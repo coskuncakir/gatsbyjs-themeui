@@ -7,6 +7,7 @@ const Card = ({
   url,
   target = "_blank",
   author,
+  tag,
   img,
   children,
   ...props
@@ -17,7 +18,7 @@ const Card = ({
       padding: 3,
       transition: ".25s ease-in-out",
       marginBottom: 3,
-
+      border: "1px solid rgba(12, 12, 13, 0.1)",
       alignItems: "center",
       borderRadius: "4px",
       backgroundColor: "softBackground",
@@ -36,22 +37,24 @@ const Card = ({
       sx={{
         color: "text",
         display: "flex",
-        flexFlow: ["row wrap", "row nowrap"],
+        flexFlow: ["row wrap", "row nowrap", "row nowrap"],
       }}
       href={url}
       target={target}
       rel="noreferrer"
     >
       {img && (
-        <img
+        <div
           sx={{
             marginBottom: [4, 2, 2],
             marginRight: [0, 4, 4],
-            objectFit: "cover",
+            marginTop: [0, 2, 2],
+            width: ["100%", "auto", "auto"],
+            textAlign: ["center", "left", "left"],
           }}
-          src={img}
-          alt={title}
-        />
+        >
+          <img src={img} alt={title} />
+        </div>
       )}
       <ul>
         <li>
@@ -67,8 +70,8 @@ const Card = ({
             {title}
           </h3>
           <p sx={{ fontSize: 1, marginTop: 1, marginBottom: 3 }}>by {author}</p>
-          <p sx={{ lineHeight: "body", color: "text" }}>
-            {truncate(children, 200)}
+          <p sx={{ lineHeight: "body", color: "textMuted" }}>
+            {truncate(stripHtml(children), 200)}
           </p>
         </li>
         <li
@@ -90,6 +93,12 @@ const Card = ({
 
 function truncate(str, n) {
   return str.length > n ? str.substr(0, n - 1) + "..." : str
+}
+
+function stripHtml(html) {
+  var tmp = document.createElement("p")
+  tmp.innerHTML = html
+  return tmp.textContent || tmp.innerText || ""
 }
 
 export default Card

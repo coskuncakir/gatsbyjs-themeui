@@ -5,32 +5,26 @@ import Card from "./card"
 const Reading = () => {
   const data = useStaticQuery(graphql`
     query MyQuery {
-      allGoodreadsReview(limit: 10) {
-        pageInfo {
-          perPage
-          totalCount
-          pageCount
-          itemCount
-          hasPreviousPage
-          hasNextPage
-          currentPage
-        }
-        nodes {
-          link
-          book {
-            title
-            authors {
-              name
+      allGoodreadsShelf(
+        filter: { name: { in: ["currently-reading", "read"] } }
+        sort: { order: ASC, fields: reviews___date_added }
+      ) {
+        shelves: nodes {
+          reviews {
+            book {
+              id
+              title
+              authors {
+                name
+              }
+              image_url
+              link
+              description
             }
-            uri
-            image_url
-            description
-            large_image_url
-            publisher
-            ratings_count
-            isbn
-            link
+            date_added
+            read_at
           }
+          name
         }
       }
     }
@@ -38,16 +32,20 @@ const Reading = () => {
 
   return (
     <>
-      {data.allGoodreadsReview.nodes.map(node => (
-        <Card
-          title={node.book.title}
-          url={node.book.link}
-          img={node.book.image_url}
-          author={node.book.authors[0].name}
-        >
-          {node.book.description}
-        </Card>
-      ))}
+      {data.allGoodreadsShelf.shelves.map(shelf =>
+        shelf.reviews.map(review => (
+          <Card
+            tag={shelf.name}
+            key={review.book.id}
+            title={review.book.title}
+            url={review.book.link}
+            img={review.book.image_url}
+            author={review.book.authors[0].name}
+          >
+            {review.book.description}
+          </Card>
+        ))
+      )}
     </>
   )
 }
