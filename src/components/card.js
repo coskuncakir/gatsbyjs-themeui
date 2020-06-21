@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import { jsx, Badge } from "theme-ui"
 import { RightArrow } from "./icons"
 
 const Card = ({
@@ -69,9 +69,11 @@ const Card = ({
           >
             {title}
           </h3>
-          <p sx={{ fontSize: 1, marginTop: 1, marginBottom: 3 }}>by {author}</p>
+          <p sx={{ fontSize: 1, marginTop: 1, marginBottom: 3 }}>
+            by {author} - <Badge>{tag}</Badge>
+          </p>
           <p sx={{ lineHeight: "body", color: "textMuted" }}>
-            {truncate(stripHtml(children), 200)}
+            {truncate(children, 200)}
           </p>
         </li>
         <li
@@ -92,13 +94,9 @@ const Card = ({
 )
 
 function truncate(str, n) {
-  return str.length > n ? str.substr(0, n - 1) + "..." : str
-}
-
-function stripHtml(html) {
-  var tmp = document.createElement("p")
-  tmp.innerHTML = html
-  return tmp.textContent || tmp.innerText || ""
+  return str.length > n
+    ? str.substr(0, n - 1).replace(/(<([^>]+)>)/gi, " ") + "..."
+    : str
 }
 
 export default Card

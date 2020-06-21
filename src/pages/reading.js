@@ -11,17 +11,16 @@ const IndexPage = () => (
       Reading
     </Text>
     <Text variant="caption" as="p" sx={{ marginBottom: 4 }}>
-      The following books come dynamically from my{" "}
+      Reading activities from my{" "}
       <Link
         variant="body"
         href="https://www.goodreads.com/user/show/61767082-coskun-cakir"
         target="_blank"
         rel="noopener noreferrer"
       >
-        goodreads
+        Goodreads
       </Link>{" "}
-      profile. This section will then be edited by adding pagination to show my
-      favorite shelf.
+      profile.
     </Text>
     <Reading />
   </Layout>
